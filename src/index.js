@@ -12,6 +12,11 @@ root.render(
         <h1>Weather App</h1>
       </header>
       <App />
+      <br />
+      <footer>
+        Coded by Oksana Kremendiuk.{" "}
+        <a href="https://github.com/OksanaKremendiuk/react-app-weather">Open source</a>.
+      </footer>
     </div>
   </React.StrictMode>
 );
