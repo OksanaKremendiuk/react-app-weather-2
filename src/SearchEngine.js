@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function App() {
+export default function SearchEngine() {
   let [city, setCity] = useState("");
   let [weather, setWeather] = useState({});
   let [loaded, setLoaded] = useState(false);
@@ -46,7 +46,7 @@ export default function App() {
         <ul>
           <li>Temperature: {Math.round(weather.temperature)}°C</li>
           <li>Humidity: {weather.humidity}%</li>
-          <li>Wind: {Math.round(weather.wind)} km/h</li>
+          <li>Wind: {weather.wind} km/h</li>
           <li>Description: {weather.description}</li>
           <li>
             <img src={weather.icon} alt={weather.description} />
