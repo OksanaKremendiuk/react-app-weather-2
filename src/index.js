@@ -15,7 +15,10 @@ root.render(
       <br />
       <footer>
         Coded by Oksana Kremendiuk.{" "}
-        <a href="https://github.com/OksanaKremendiuk/react-app-weather">Open source</a>.
+        <a href="https://github.com/OksanaKremendiuk/react-app-weather-2">
+          Open source
+        </a>
+        .
       </footer>
     </div>
   </React.StrictMode>
