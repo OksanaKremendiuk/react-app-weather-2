@@ -3,7 +3,7 @@ import "./SearchEngine.css";
 import axios from "axios";
 
 export default function SearchEngine() {
-  let [city, setCity] = useState("");
+  let [city, setCity] = useState("Lviv", "");
   let [weather, setWeather] = useState({});
   let [loaded, setLoaded] = useState(false);
 
@@ -11,7 +11,7 @@ export default function SearchEngine() {
     setLoaded(true);
     console.log(response);
     setWeather({
-      pressure: pesponse.data.main.pressure,
+      pressure: response.data.main.pressure,
       cityName: response.data.name,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
@@ -132,10 +132,9 @@ export default function SearchEngine() {
       </div>
     );
   } else {
-    let city = "Lviv";
     let api = "4a6d5a2213f3c0c35df9b43a1ead3cfc";
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=metric`;
     axios.get(url).then(showWeather);
-    return "Loading///";
+    return "Loading...";
   }
 }
