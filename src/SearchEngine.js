@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./SearchEngine.css";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 
 export default function SearchEngine() {
   let [city, setCity] = useState("Lviv", "");
@@ -11,7 +12,7 @@ export default function SearchEngine() {
     setLoaded(true);
     console.log(response);
     setWeather({
-      date: "13:20",
+      date: new Date(response.data.dt * 1000),
       pressure: response.data.main.pressure,
       cityName: response.data.name,
       temperature: response.data.main.temp,
@@ -76,7 +77,7 @@ export default function SearchEngine() {
                 <h1 id="city">{weather.cityName}</h1>
                 <ul>
                   <li>
-                    Last updated: <span id="date">{weather.date}</span>
+                    <FormattedDate date={weather.date} />
                   </li>
                   <li id="description">{weather.description}</li>
                 </ul>
