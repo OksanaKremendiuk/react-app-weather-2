@@ -11,6 +11,7 @@ export default function SearchEngine() {
     setLoaded(true);
     console.log(response);
     setWeather({
+      date: "13:20",
       pressure: response.data.main.pressure,
       cityName: response.data.name,
       temperature: response.data.main.temp,
@@ -75,7 +76,7 @@ export default function SearchEngine() {
                 <h1 id="city">{weather.cityName}</h1>
                 <ul>
                   <li>
-                    Last updated: <span id="date">13:20</span>
+                    Last updated: <span id="date">{weather.date}</span>
                   </li>
                   <li id="description">{weather.description}</li>
                 </ul>
