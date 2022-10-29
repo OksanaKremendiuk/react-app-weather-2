@@ -132,7 +132,7 @@ export default function SearchEngine() {
       </div>
     );
   } else {
-    city = "Lviv";
+    let city = "Lviv";
     let api = "4a6d5a2213f3c0c35df9b43a1ead3cfc";
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=metric`;
     axios.get(url).then(showWeather);
