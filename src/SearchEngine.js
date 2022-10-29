@@ -3,7 +3,7 @@ import "./SearchEngine.css";
 import axios from "axios";
 
 export default function SearchEngine() {
-  let [city, setCity] = useState("");
+  let [city, setCity] = useState("Lviv");
   let [weather, setWeather] = useState({});
   let [loaded, setLoaded] = useState(false);
 
@@ -129,28 +129,34 @@ export default function SearchEngine() {
         </div>
       </div>
     );
-  } else {
-    return (
+  } else { return (
       <div className="App">
         <div className="container">
           <div className="weather-app-wrapper">
             <div className="weather-app">
               {form}
               <div className="overview">
-                <h1 id="city">Kyiv</h1>
+                <h1 id="city">{weather.cityName}</h1>
                 <ul>
                   <li>
                     Last updated: <span id="date">13:20</span>
                   </li>
-                  <li id="description"></li>
+                  <li id="description">{weather.description}</li>
                 </ul>
               </div>
               <div className="row">
                 <div className="col-6">
                   <div className="d-flex weather-temperature">
-                    <img src="" alt="" id="icon" class="float-left" />
+                    <img
+                      src={weather.icon}
+                      alt={weather.description}
+                      id="icon"
+                      class="float-left"
+                    />
                     <div className="float-left">
-                      <strong id="temparature">20</strong>
+                      <strong id="temparature">
+                        {Math.round(weather.temperature)}
+                      </strong>
                       <span className="units">°C</span>
                     </div>
                   </div>
@@ -161,10 +167,11 @@ export default function SearchEngine() {
                       pressure: <span id="pressure">1000</span>hPa
                     </li>
                     <li>
-                      humidity: <span id="humidity">50</span>%
+                      humidity: <span id="humidity">{weather.humidity}</span>%
                     </li>
                     <li>
-                      wind: <span id="wind">6</span> km/h
+                      wind: <span id="wind">{Math.round(weather.wind)}</span>{" "}
+                      km/h
                     </li>
                   </ul>
                 </div>
@@ -186,6 +193,5 @@ export default function SearchEngine() {
           </div>
         </div>
       </div>
-    );
-  }
+    );}
 }
