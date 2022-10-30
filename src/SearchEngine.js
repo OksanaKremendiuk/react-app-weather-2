@@ -36,7 +36,7 @@ export default function SearchEngine() {
   let form = (
     <form id="city-form" className="mb-3" onSubmit={handleSearch}>
       <div className="row">
-        <div className="col-6">
+        <div className="col-9">
           <input
             type="search"
             placeholder="Enter a city..."
@@ -55,7 +55,7 @@ export default function SearchEngine() {
             id="city-input"
           />
         </div>
-        <div className="col-3">
+        {/* <div className="col-3">
           <button
             type="button"
             class="btn btn-outline-success shadow-sm w-100"
@@ -63,7 +63,7 @@ export default function SearchEngine() {
           >
             Where you
           </button>
-        </div>
+        </div> */}
       </div>
     </form>
   );
