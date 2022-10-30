@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./SearchEngine.css";
 import axios from "axios";
-import FormattedDate from "./FormattedDate";
+
+import WeatherInfo from "./WeatherInfo";
 
 export default function SearchEngine() {
   let [city, setCity] = useState("Lviv", "");
@@ -73,48 +74,8 @@ export default function SearchEngine() {
           <div className="weather-app-wrapper">
             <div className="weather-app">
               {form}
-              <div className="overview">
-                <h1 id="city">{weather.cityName}</h1>
-                <ul>
-                  <li>
-                    <FormattedDate date={weather.date} />
-                  </li>
-                  <li id="description">{weather.description}</li>
-                </ul>
-              </div>
-              <div className="row">
-                <div className="col-6">
-                  <div className="d-flex weather-temperature">
-                    <img
-                      src={weather.icon}
-                      alt={weather.description}
-                      id="icon"
-                      class="float-left"
-                    />
-                    <div className="float-left">
-                      <strong id="temparature">
-                        {Math.round(weather.temperature)}
-                      </strong>
-                      <span className="units">°C</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-6">
-                  <ul>
-                    <li>
-                      pressure: <span id="pressure">{weather.pressure}</span>
-                      hPa
-                    </li>
-                    <li>
-                      humidity: <span id="humidity">{weather.humidity}</span>%
-                    </li>
-                    <li>
-                      wind: <span id="wind">{Math.round(weather.wind)}</span>{" "}
-                      km/h
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              <WeatherInfo data={weather}/>
+              
               <div className="weather-forecast" id="forecast"></div>
             </div>
             <small>
