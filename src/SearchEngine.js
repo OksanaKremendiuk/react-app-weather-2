@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SearchEngine.css";
 import axios from "axios";
-
+import WeatherForecast from "./WeatherForecast";
 import WeatherInfo from "./WeatherInfo";
 
 export default function SearchEngine() {
@@ -11,8 +11,8 @@ export default function SearchEngine() {
 
   function showWeather(response) {
     setLoaded(true);
-    console.log(response);
     setWeather({
+      coordinates: response.data.coord,
       date: new Date(response.data.dt * 1000),
       pressure: response.data.main.pressure,
       cityName: response.data.name,
@@ -74,8 +74,8 @@ export default function SearchEngine() {
           <div className="weather-app-wrapper">
             <div className="weather-app">
               {form}
-              <WeatherInfo data={weather}/>
-              
+              <WeatherInfo data={weather} />
+              <WeatherForecast coordinates={weather.coordinates} />
               <div className="weather-forecast" id="forecast"></div>
             </div>
             <small>
