@@ -17,10 +17,6 @@ export default function WeatherForecastDay(props) {
     return days[day];
   }
 
-  function icon() {
-    let icon = props.weather[0].icon;
-    return "https://openweathermap.org/img/wn/" + { icon } + "@2x.png";
-  }
   return (
     <div>
       <div className="ForecastDay">{day()}</div>
